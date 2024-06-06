@@ -9,17 +9,17 @@ if (!defined('DEBUG')) {
 
 // ===============
 // Configuration de la base de données sur dev-isi
-$dsn = 'mysql:dbname=charlott;host=localhost;charset=utf8';
-$username = 'charlott';
-$password = 'yVojE5tg';
+$dsn = 'mysql:dbname=lemercie;host=localhost;charset=utf8';
+$username = 'lemercie';
+$password = '.....';
 
 if (!defined('LOCAL')) {
-    define('LOCAL', FALSE);
+    define('LOCAL', TRUE);
 }
 
 if (LOCAL) {
     // Configuration de la base de données sur localhost
-    $dsn = 'mysql:dbname=CAVE;host=localhost;charset=utf8';
+    $dsn = 'mysql:dbname=godefrom;host=localhost;charset=utf8';
     $username = 'root';
     $password = 'root';
 }
