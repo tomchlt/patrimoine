@@ -80,7 +80,7 @@ class ModelPersonne
         return $this->password;
     }
 
-    // Get all IDs
+    // retourne tous les IDs
     public static function getAllId()
     {
         try {
@@ -96,7 +96,7 @@ class ModelPersonne
         }
     }
 
-    // Get many records based on a query
+    // par query
     public static function getMany($query)
     {
         try {
@@ -111,7 +111,7 @@ class ModelPersonne
         }
     }
 
-    // Get all records
+    // toutes les personnes
     public static function getAll()
     {
         try {
@@ -127,7 +127,7 @@ class ModelPersonne
         }
     }
 
-    // Get one record by ID
+    // toutes les personnes par ID
     public static function getOne($id)
     {
         try {
@@ -145,7 +145,7 @@ class ModelPersonne
         }
     }
 
-    // Insert a new record
+    // ajouter
     public static function insert($nom, $prenom, $statut, $login, $password)
     {
         try {
@@ -176,6 +176,25 @@ class ModelPersonne
         }
     }
 
+    // public static function getByLoginAndPassword($login, $password)
+    // {
+    //     try {
+    //         $database = Model::getInstance();
+    //         $query = "SELECT * FROM personne WHERE login = :login AND password = :password";
+    //         $statement = $database->prepare($query);
+    //         $statement->execute([
+    //             'login' => $login,
+    //             'password' => $password
+    //         ]);
+    //         $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    //         return $result ? new ModelPersonne($result['id'], $result['nom'], $result['prenom'], $result['statut'], $result['login'], $result['password']) : null;
+    //     } catch (PDOException $e) {
+    //         // Gérer les erreurs de la base de données
+    //         return null;
+    //     }
+    // }
+
     public static function update()
     {
         echo ("ModelPersonne : update() TODO ....");
@@ -189,4 +208,4 @@ class ModelPersonne
     }
 
 }
-?>
+

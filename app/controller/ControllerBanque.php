@@ -2,7 +2,7 @@
 <?php
 require_once '../model/ModelBanque.php';
 require_once '../model/ModelCompte.php';
-
+require_once '../model/ModelPersonne.php';
 class ControllerBanque
 {
     // --- page d'accueil

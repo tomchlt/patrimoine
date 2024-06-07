@@ -2,6 +2,7 @@
 <!-- ----- debut Router1 -->
 <?php
 require ('../controller/ControllerBanque.php');
+require ('../controller/ControllerPersonne.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -28,10 +29,14 @@ switch ($action) {
     ControllerBanque::banqueCompte();
     include '../view/viewBanqueCompte.php';
     break;
-
-
-
-
+  case "connexion":
+    ControllerPersonne::connexion();
+    include '../view/viewConnexion.php';
+    break;
+  case "listeClients":
+    ControllerPersonne::listeClients();
+    break;
+    
   // Tache par défaut
   default:
     $action = "Accueil";
