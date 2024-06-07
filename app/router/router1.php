@@ -3,6 +3,8 @@
 <?php
 require ('../controller/ControllerBanque.php');
 require ('../controller/ControllerPersonne.php');
+require ('../controller/ControllerCompte.php');
+require ('../controller/ControllerResidence.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -39,7 +41,12 @@ switch ($action) {
   case "listeAdmins":
     ControllerPersonne::listeAdmins();
     break;
-
+  case "listeComptes":
+    ControllerCompte::listeComptes();
+    break;
+    case "listeResidences":
+      ControllerResidence::listeResidences();
+      break;
   // Tache par défaut
   default:
     $action = "Accueil";

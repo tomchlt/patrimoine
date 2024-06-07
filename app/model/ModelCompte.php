@@ -99,4 +99,37 @@ class ModelCompte
       return NULL;
     }
   }
+
+  public static function getAll()
+  {
+    try {
+      $database = Model::getInstance();
+      $query = "select * from compte";
+      $statement = $database->prepare($query);
+      $statement->execute();
+      $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelCompte");
+      return $results;
+    } catch (PDOException $e) {
+      printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+      return NULL;
+    }
+  }
+
+  public static function getAllWithDetails() {
+    try {
+        $database = Model::getInstance();
+        $query = "SELECT compte.label AS compte_label, compte.montant, personne.nom, personne.prenom, banque.label AS banque_label, banque.pays 
+                  FROM compte 
+                  JOIN personne ON compte.personne_id = personne.id 
+                  JOIN banque ON compte.banque_id = banque.id";
+        $statement = $database->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    } catch (PDOException $e) {
+        printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+        return NULL;
+    }
+}
+
 }

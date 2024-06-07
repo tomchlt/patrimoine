@@ -22,7 +22,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <?php
         // La liste des clients est dans une variable $results         
         foreach ($results as $element) {
-          var_dump($element);
           printf(
             "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
             $element->getNom(),
