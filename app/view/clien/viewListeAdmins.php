@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h1>Liste des clients</h1>
+    <h1>Liste des admins</h1>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -22,6 +22,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <?php
         // La liste des clients est dans une variable $results         
         foreach ($results as $element) {
+          var_dump($element);
           printf(
             "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
             $element->getNom(),

@@ -127,6 +127,22 @@ class ModelPersonne
         }
     }
 
+    //tous les admins
+    public static function getAllAdmins()
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "SELECT * FROM personne WHERE id = 0";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
     // toutes les personnes par ID
     public static function getOne($id)
     {

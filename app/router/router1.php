@@ -33,10 +33,13 @@ switch ($action) {
     ControllerPersonne::connexion();
     include '../view/viewConnexion.php';
     break;
-  case "listeClients":
-    ControllerPersonne::listeClients();
+    case "listeClients":
+      ControllerPersonne::listeClients();
     break;
-    
+  case "listeAdmins":
+    ControllerPersonne::listeAdmins();
+    break;
+
   // Tache par défaut
   default:
     $action = "Accueil";

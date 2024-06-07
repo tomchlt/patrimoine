@@ -55,6 +55,17 @@ class ControllerPersonne
         require ($vue);
     }
 
+    public static function listeAdmins()
+    {
+        $results = ModelPersonne::getAllAdmins();
+        include 'config.php';
+        $vue = $root . '/app/view/clien/viewlisteAdmins.php';
+        if (DEBUG) {
+            echo ("ControllerPersonne : listeAdmins : vue = $vue");
+        }
+        require($vue);
+    }
+
 }
 
 ?>
