@@ -5,10 +5,5 @@ body {
 
 .container {
     margin-top: 80px;
-    background-color: rgb(226, 204, 40);
     width: 60%;
-}
-
-.jumbotron {
-  background-color:rgb(226, 204, 40);
 }

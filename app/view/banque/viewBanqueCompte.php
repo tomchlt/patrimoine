@@ -1,4 +1,8 @@
-<!-- viewBanqueCompte.php -->
+<?php
+include ('../ModelBanque.php');
+include ('../ModelCompte.php');
+include ('../ModelPersonne.php');
+?>
 
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
@@ -11,34 +15,38 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
 
-    <table class = "table table-striped table-bordered">
+    <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope = "col">id</th>
-          <th scope = "col">label</th>
-          <th scope = "col">montant</th>
-          <th scope = "col">banque_id</th>
-          <th scope = "col">personne_id</th>
+          <th scope="col">prénom</th>
+          <th scope="col">nom</th>
+          <th scope="col">banque</th>
+          <th scope="col">compte</th>
+          <th scope="col">montant (€)</th>
         </tr>
       </thead>
       <tbody>
           <?php
-          // La liste des comptes est dans une variable $comptes
-          foreach ($comptes as $compte) {
+          if (count($comptes)) {
+            foreach ($comptes as $compte) {
               printf(
-                "<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
-                $compte->getId(),
+                "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                $compte->getPersonnePrenom(),
+                $compte->getPersonneNom(),
+                $compte->getBanqueNom(),
                 $compte->getLabel(),
-                $compte->getMontant(),
-                $compte->getBanqueId(),
-                $compte->getPersonneId()
+                $compte->getMontant()
               );
+            }
+          } else {
+            echo ("il n'y a pas de compte pour cette banque");
           }
+          // La liste des comptes est dans une variable $comptes
+          
           ?>
       </tbody>
     </table>
   </div>
-
 
   <!-- ----- fin viewAll -->
 </body>
