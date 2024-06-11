@@ -8,6 +8,11 @@ class ControllerBanque
     // --- page d'accueil
     public static function Accueil()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+        
         include 'config.php';
         $vue = $root . '/app/view/viewAccueil.php';
         if (DEBUG)
@@ -39,16 +44,15 @@ class ControllerBanque
         session_start();
         $login = $_SESSION['login'];
         $tempUser = ModelPersonne::getOneLogin($login);
-        
+
         // Vérifiez si l'identifiant de la banque est passé dans l'URL
         if (isset($_GET['id'])) {
             // Récupérez l'identifiant de la banque depuis l'URL
             $banque_id = $_GET['id'];
             // Appelez la méthode getByBanque du modèle ModelCompte pour récupérer les comptes par banque
             $comptes = ModelCompte::getByBanque($banque_id);
-            // Vérifiez si des comptes ont été récupérés
+
             if ($comptes !== null) {
-                // Construction du chemin de la vue
                 include 'config.php';
                 $vue = $root . '/app/view/banque/viewBanqueCompte.php';
                 if (DEBUG)
@@ -58,12 +62,12 @@ class ControllerBanque
             } else {
                 // Si aucun compte n'a été trouvé, redirigez vers la vue de sélection de banque
                 header("Location: router1.php?action=selectBanque");
-                exit; // Assurez-vous de terminer l'exécution du script après la redirection
+                exit;
             }
         } else {
             // Si l'identifiant de la banque n'est pas passé dans l'URL, redirigez également vers la vue de sélection de banque
             header("Location: router1.php?action=selectBanque");
-            exit; // Assurez-vous de terminer l'exécution du script après la redirection
+            exit;
         }
     }
 

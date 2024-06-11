@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-warning fixed-top">
   <div class="container-fluid">
+
   <?php
   if ($_SESSION['login'] === 'NULL') {
     echo ('<a class="navbar-brand" href="router1.php?action=Accueil">CHARLOT - GODEFROY</a>');
+    var_dump("not logged");
   } else {
     $userType = '';
     $Name = $tempUser->getPrenom() . " " . $tempUser->getNom();
@@ -13,9 +15,10 @@
         $userType = "administrateur";
         break;
       case ModelPersonne::USER:
-        $userType = "user";
+        $userType = "CLIENT";
         break;
       default:
+        $userType = '';
         break;
     }
 
