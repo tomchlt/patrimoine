@@ -5,20 +5,6 @@ require_once '../model/ModelCompte.php';
 require_once '../model/ModelPersonne.php';
 class ControllerBanque
 {
-    // --- page d'accueil
-    public static function Accueil()
-    {
-        // Récupération des données de l'user connecté
-        session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
-        
-        include 'config.php';
-        $vue = $root . '/app/view/viewAccueil.php';
-        if (DEBUG)
-            echo ("ControllerBanque : Accueil : vue = $vue");
-        require ($vue);
-    }
 
     // --- Liste des banques
     public static function BanqueReadAll()
@@ -136,7 +122,6 @@ class ControllerBanque
     }
 
     // Affiche un formulaire pour récupérer les informations d'une nouvelle banque.
-    // La clé est gérée par le système et pas par l'internaute
     public static function banqueCreated()
     {
         // Récupération des données de l'user connecté

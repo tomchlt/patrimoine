@@ -203,6 +203,24 @@ class ModelPersonne
         }
     }
 
+    // ---- Vérifie que le login donné n'existe pas déjà dans la base de données
+    public static function checkLogin($login)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from personne where login = :login";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'login' => $login
+            ]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
     // ajouter
     public static function insert($nom, $prenom, $statut, $login, $password)
     {

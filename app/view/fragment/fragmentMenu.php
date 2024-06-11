@@ -4,10 +4,9 @@
   <?php
   if ($_SESSION['login'] === 'NULL') {
     echo ('<a class="navbar-brand" href="router1.php?action=Accueil">CHARLOT - GODEFROY</a>');
-    var_dump("not logged");
   } else {
     $userType = '';
-    $Name = $tempUser->getPrenom() . " " . $tempUser->getNom();
+    $Name = $tempUser->getNom() . " " . $tempUser->getPrenom();
 
     // Affichage différencié selon le type d'utilisateur
     switch ($tempUser->getStatut()) {
@@ -58,15 +57,32 @@
             </ul>
           </li>';
         }
+        if ($tempUser->getStatut() == ModelPersonne::USER) {
+          $menuContent = '
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES COMPTES BANCAIRES</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="router1.php?action=">Liste de mes comptes</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=">Ajouter un nouveau compte</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=">Transfert Inter-comptes</a></li> 
+            </ul>
+          </li>';
+        }
         echo $menuContent;
       }
       ?>
         <!-- CONNEXION-->
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">SE CONNECTER</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CONNEXION</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="router1.php?action=connexion">Connexion</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=Inscription">S'inscrire</a></li>
+              <?php 
+              if ($_SESSION['login'] === 'NULL') {
+                echo ('              <li><a class="dropdown-item" href="router1.php?action=connexion">Connexion</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=inscription">Inscription</a></li>');
+              } else {
+                echo ('<li><a class="dropdown-item" href="router1.php?action=deconnexion">Se déconnecter</a></li>');
+              }
+              ?>
             </ul>
         </li>
       
