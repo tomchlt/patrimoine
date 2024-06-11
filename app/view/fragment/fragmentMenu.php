@@ -66,6 +66,13 @@
               <li><a class="dropdown-item" href="router1.php?action=">Ajouter un nouveau compte</a></li>
               <li><a class="dropdown-item" href="router1.php?action=">Transfert Inter-comptes</a></li> 
             </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES RÉSIDENCES</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="router1.php?action=">Liste de mes résidences</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=">Acheter une nouvelle résidence</a></li>
+            </ul>
           </li>';
         }
         echo $menuContent;
