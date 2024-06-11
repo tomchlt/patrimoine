@@ -5,6 +5,11 @@ class ControllerResidence
 {
     public static function listeResidences()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+        
         $results = ModelResidence::getAllOrderedByPrix();
         include 'config.php';
         $vue = $root . '/app/view/residence/viewListeResidences.php';

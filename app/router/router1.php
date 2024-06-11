@@ -31,12 +31,8 @@ switch ($action) {
     ControllerBanque::banqueCompte();
     include '../view/viewBanqueCompte.php';
     break;
-  case "connexion":
-    ControllerPersonne::connexion();
-    include '../view/viewConnexion.php';
-    break;
-    case "listeClients":
-      ControllerPersonne::listeClients();
+  case "listeClients":
+    ControllerPersonne::listeClients();
     break;
   case "listeAdmins":
     ControllerPersonne::listeAdmins();
@@ -44,9 +40,15 @@ switch ($action) {
   case "listeComptes":
     ControllerCompte::listeComptes();
     break;
-    case "listeResidences":
-      ControllerResidence::listeResidences();
-      break;
+  case "listeResidences":
+    ControllerResidence::listeResidences();
+    break;
+  //connexion
+  case "connexion":
+  case "connexionLogge":
+  case "connexionError":
+    ControllerPersonne::$action();
+    break;
   // Tache par défaut
   default:
     $action = "Accueil";

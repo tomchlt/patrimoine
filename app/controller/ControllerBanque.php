@@ -18,6 +18,11 @@ class ControllerBanque
     // --- Liste des banques
     public static function BanqueReadAll()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         $results = ModelBanque::getAll();
         // ----- Construction chemin de la vue
         include 'config.php';
@@ -30,6 +35,11 @@ class ControllerBanque
     //tous les comptes d'une même banque
     public static function banqueCompte()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+        
         // Vérifiez si l'identifiant de la banque est passé dans l'URL
         if (isset($_GET['id'])) {
             // Récupérez l'identifiant de la banque depuis l'URL
@@ -61,6 +71,11 @@ class ControllerBanque
     //selectionner une banque
     public static function selectBanque()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         $results = ModelBanque::getAll();
         include 'config.php';
         $vue = $root . '/app/view/banque/viewSelectBanque.php';
@@ -72,6 +87,11 @@ class ControllerBanque
     // Affiche un formulaire pour sélectionner un id qui existe
     public static function banqueReadId()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         $results = ModelBanque::getAllId();
 
         // ----- Construction chemin de la vue
@@ -83,6 +103,11 @@ class ControllerBanque
     // Affiche une banque particulière (id)
     public static function banqueReadOne()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         $banque_id = $_GET['id'];
         $results = ModelBanque::getOne($banque_id);
 
@@ -95,6 +120,11 @@ class ControllerBanque
     // Affiche le formulaire de creation d'un banque
     public static function banqueCreate()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/banque/viewInsert.php';
@@ -105,6 +135,11 @@ class ControllerBanque
     // La clé est gérée par le système et pas par l'internaute
     public static function banqueCreated()
     {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         // ajouter une validation des informations du formulaire
         $results = ModelBanque::insert(
             htmlspecialchars($_GET['label']),

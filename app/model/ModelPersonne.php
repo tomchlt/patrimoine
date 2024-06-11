@@ -3,6 +3,10 @@ require_once 'Model.php';
 
 class ModelPersonne
 {
+    // Variables de la classe
+    const ADMINISTRATEUR = 0;
+    const USER = 1;
+
     private $id, $nom, $prenom, $statut, $login, $password;
 
     // Constructor
@@ -161,6 +165,44 @@ class ModelPersonne
         }
     }
 
+
+    // Récupère le tuple personne qui correspond au login donné
+    public static function getOneLogin($login)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from personne where login = :login";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'login' => $login
+            ]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results[0];
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    // ---- Vérifie que les identifiants donnés existent dans la base de donnés
+    public static function checkIdentifiers($login, $password)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from personne where login = :login AND password= :password";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'login' => $login,
+                'password' => $password
+            ]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results[0];
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
     // ajouter
     public static function insert($nom, $prenom, $statut, $login, $password)
     {
@@ -192,24 +234,23 @@ class ModelPersonne
         }
     }
 
-    // public static function getByLoginAndPassword($login, $password)
-    // {
-    //     try {
-    //         $database = Model::getInstance();
-    //         $query = "SELECT * FROM personne WHERE login = :login AND password = :password";
-    //         $statement = $database->prepare($query);
-    //         $statement->execute([
-    //             'login' => $login,
-    //             'password' => $password
-    //         ]);
-    //         $result = $statement->fetch(PDO::FETCH_ASSOC);
-
-    //         return $result ? new ModelPersonne($result['id'], $result['nom'], $result['prenom'], $result['statut'], $result['login'], $result['password']) : null;
-    //     } catch (PDOException $e) {
-    //         // Gérer les erreurs de la base de données
-    //         return null;
-    //     }
-    // }
+    public static function getByLoginAndPassword($login, $password)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from personne where login = :login AND password= :password";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'login' => $login,
+                'password' => $password
+            ]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results[0];
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 
     public static function update()
     {

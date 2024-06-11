@@ -9,6 +9,11 @@ class ControllerCompte
 {
 
     public static function listeComptes() {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+        
         $results = ModelCompte::getAllWithDetails();
         include 'config.php';
         $vue = $root . '/app/view/compte/viewListeComptes.php';
