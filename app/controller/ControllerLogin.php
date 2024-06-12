@@ -52,6 +52,12 @@ class ControllerLogin
         if ($loginResults != null) {
             $_SESSION['login'] = $_GET['login'];
             $tempUser = ModelPersonne::getOneLogin($_SESSION['login']);
+
+            include 'config.php';
+            $vue = $root . '/app/view//viewAccueil.php';
+            if (DEBUG)
+                echo ("ControllerLogin : viewAccueil : vue = $vue");
+            require ($vue);
         }
         // Identifiants erronés
         else {

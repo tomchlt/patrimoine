@@ -7,10 +7,10 @@ class ModelCompte
   private $label;
   private $montant;
   private $banque_id;
+  private $banque_nom;
   private $personne_id;
   private $personne_nom;
   private $personne_prenom;
-  private $banque_nom;
 
   // Constructeur
   public function __construct($id = NULL, $label = NULL, $montant = NULL, $banque_id = NULL, $personne_id = NULL)
@@ -115,21 +115,45 @@ class ModelCompte
     }
   }
 
-  public static function getAllWithDetails() {
+  public static function getAllWithDetails()
+  {
     try {
-        $database = Model::getInstance();
-        $query = "SELECT compte.label AS compte_label, compte.montant, personne.nom, personne.prenom, banque.label AS banque_label, banque.pays 
+      $database = Model::getInstance();
+      $query = "SELECT compte.label AS compte_label, compte.montant, personne.nom, personne.prenom, banque.label AS banque_label, banque.pays 
                   FROM compte 
                   JOIN personne ON compte.personne_id = personne.id 
                   JOIN banque ON compte.banque_id = banque.id";
-        $statement = $database->prepare($query);
-        $statement->execute();
-        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $results;
+      $statement = $database->prepare($query);
+      $statement->execute();
+      $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+      return $results;
     } catch (PDOException $e) {
-        printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-        return NULL;
+      printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+      return NULL;
     }
-}
+  }
+
+  public static function getByLogin($login)
+  {
+    try {
+      $database = Model::getInstance();
+      $query = "
+        SELECT compte.label AS compte_label, compte.montant, banque.label AS banque_nom FROM personne
+        JOIN 
+            compte ON compte.personne_id = personne.id
+        JOIN 
+            banque ON compte.banque_id = banque.id
+        WHERE 
+            personne.login = :login";
+      $statement = $database->prepare($query);
+      $statement->bindParam(':login', $login);
+      $statement->execute();
+      $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+      return $results;
+    } catch (PDOException $e) {
+      printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+      return NULL;
+    }
+  }
 
 }

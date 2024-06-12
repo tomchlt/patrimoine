@@ -40,6 +40,7 @@ switch ($action) {
     ControllerAdmin::$action();
     break;
   case "listeComptes":
+  case "mesComptes":
     ControllerCompte::$action();
     break;
   case "listeResidences":
