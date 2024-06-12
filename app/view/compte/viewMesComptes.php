@@ -27,7 +27,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <?php
           if ($comptes) {
             foreach ($comptes as $compte) {
-              var_dump($compte);
               printf(
                 "<tr><td>%s</td><td>%s</td><td>%s</td></tr>",
                 $compte['banque_nom'],
