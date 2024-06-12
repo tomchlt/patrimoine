@@ -55,16 +55,12 @@ class ControllerLogin
         }
         // Identifiants erronés
         else {
-            header('Location: router.php?action=connexionError');
-            exit();
+            include 'config.php';
+            $vue = $root . '/app/view/connexion/viewConnexionError.php';
+            if (DEBUG)
+                echo ("ControllerLogin : viewConnexionError : vue = $vue");
+            require ($vue);
         }
-
-        // Construction chemin de la vue
-        include 'config.php';
-        $vue = $root . '/app/view/viewAccueil.php';
-        if (DEBUG)
-            echo ("ControllerLogin: connexionLogge : vue = $vue");
-        require ($vue);
     }
 
     // Affiche le résultat d'une connexion ratée
@@ -79,9 +75,9 @@ class ControllerLogin
 
         // Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/connexion/ConnexionError.php';
+        $vue = $root . '/app/view/connexion/viewConnexionError.php';
         if (DEBUG)
-            echo ("ControllerLogin: connexionError : vue = $vue");
+            echo ("ControllerLogin : viewConnexionError : vue = $vue");
         require ($vue);
     }
 
