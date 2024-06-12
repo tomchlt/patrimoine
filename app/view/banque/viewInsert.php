@@ -1,22 +1,36 @@
 
 <!-- ----- début viewInsert -->
  
-<?php 
+<?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
 
 <body>
   <div class="container">
     <?php
-      include $root . '/app/view/fragment/fragmentMenu.php';
-      include $root . '/app/view/fragment/fragmentJumbotron.html';
+    include $root . '/app/view/fragment/fragmentMenu.php';
+    include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?> 
 
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
-        <input type="hidden" name='action' value='banqueCreated'>        
-        <label class='w-25' for="id">label : </label><input type="text" name='label' size='75' value='Crédit Mutuel'> <br/>                          
-        <label class='w-25' for="id">pays : </label><input type="text" name='pays' value='France'> <br/>      
+        <input type="hidden" name='action' value='banqueCreated'>      
+        <div class="row align-items-center">
+              <div class="col-1">
+                    <label for="label" class="col-form-label" style="font-weight: bold; width:250px">Label :</label>
+              </div>
+              <div class="col-3">
+                  <input type="text" name='label' size='75' class="form-control" required>
+              </div>
+        </div><br/>     
+        <div class="row align-items-center">
+              <div class="col-1">
+                    <label for="pays" class="col-form-label" style="font-weight: bold; width:250px">Pays :</label>
+              </div>
+              <div class="col-3">
+                  <input  type="text" name='pays' class="form-control" required>
+              </div>
+        </div><br/>     
       </div>
       <p/>
        <br/> 

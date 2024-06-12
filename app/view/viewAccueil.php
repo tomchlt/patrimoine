@@ -1,5 +1,5 @@
 
-<!-- ----- debut de la page cave_acceuil -->
+<!-- ----- debut de la page Accueil -->
 
 <?php include $root . '/app/view/fragment/fragmentHeader.html'; ?>
 <body>
@@ -15,8 +15,7 @@
   include $root . '/app/view/fragment/fragmentFooter.html';
   ?>
 
-  <!-- ----- fin de la page cave_acceuil -->
-
+  <!-- ----- fin de la page Accueil -->
 </body>
 </html>
 
