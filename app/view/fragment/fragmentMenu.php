@@ -7,6 +7,7 @@
   } else {
     $userType = '';
     $Name = $tempUser->getNom() . " " . $tempUser->getPrenom();
+    $_SESSION['id'] = $tempUser->getId();
 
     // Affichage différencié selon le type d'utilisateur
     switch ($tempUser->getStatut()) {
@@ -63,7 +64,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES COMPTES BANCAIRES</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=mesComptes">Liste de mes comptes</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=">Ajouter un nouveau compte</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=addCompte">Ajouter un nouveau compte</a></li>
               <li><a class="dropdown-item" href="router1.php?action=">Transfert Inter-comptes</a></li> 
             </ul>
           </li>

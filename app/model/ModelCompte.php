@@ -156,4 +156,34 @@ class ModelCompte
     }
   }
 
+  public static function insert($label, $montant, $banque_id, $personne_id)
+  {
+      try {
+          $database = Model::getInstance();
+  
+          // Recherche de la valeur de la clé = max(id) + 1
+          $query = "SELECT MAX(id) FROM compte";
+          $statement = $database->query($query);
+          $id = $statement->fetchColumn();
+          $id++;
+  
+          // Ajout d'un nouveau tuple
+          $query = "INSERT INTO compte (id, label, montant, banque_id, personne_id) VALUES (:id, :label, :montant, :banque_id, :personne_id)";
+          $statement = $database->prepare($query);
+          $statement->bindParam(':id', $id);
+          $statement->bindParam(':label', $label);
+          $statement->bindParam(':montant', $montant);
+          $statement->bindParam(':banque_id', $banque_id);
+          $statement->bindParam(':personne_id', $personne_id);
+          $statement->execute();
+  
+          return $id; // Retourne l'identifiant du nouveau compte
+      } catch (PDOException $e) {
+          printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+          return -1; // Retourne -1 en cas d'erreur
+      }
+  }
+  
+  
+
 }

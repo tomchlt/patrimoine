@@ -8,12 +8,52 @@ require_once '../model/ModelPersonne.php';
 class ControllerCompte
 {
 
-    public static function mesComptes() {
+    public static function addCompte()
+    {
         // Récupération des données de l'user connecté
         session_start();
         $login = $_SESSION['login'];
         $tempUser = ModelPersonne::getOneLogin($login);
-        
+
+        // $personne_id = $tempUser['id'];
+        $results = ModelBanque::getAll();
+
+        include 'config.php';
+        $vue = $root . '/app/view/compte/viewAddCompte.php';
+        if (DEBUG) {
+            echo ("ControllerCompte : addCompte : vue = $vue");
+        }
+        require ($vue);
+
+    }
+
+    // Affiche un formulaire pour récupérer les informations d'une nouvelle banque.
+    public static function compteCreated()
+    {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
+        // ajouter une validation des informations du formulaire
+        $results = ModelCompte::insert(
+            htmlspecialchars($_GET['label']),
+            htmlspecialchars($_GET['montant']),
+            htmlspecialchars($_GET['banque_id']),
+            htmlspecialchars($_GET['personne_id']),
+        );
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . '/app/view/compte/viewInserted.php';
+        require ($vue);
+    }
+    public static function mesComptes()
+    {
+        // Récupération des données de l'user connecté
+        session_start();
+        $login = $_SESSION['login'];
+        $tempUser = ModelPersonne::getOneLogin($login);
+
         $comptes = ModelCompte::getByLogin($login);
         include 'config.php';
         $vue = $root . '/app/view/compte/viewMesComptes.php';
@@ -23,12 +63,13 @@ class ControllerCompte
         require ($vue);
     }
 
-    public static function listeComptes() {
+    public static function listeComptes()
+    {
         // Récupération des données de l'user connecté
         session_start();
         $login = $_SESSION['login'];
         $tempUser = ModelPersonne::getOneLogin($login);
-        
+
         $results = ModelCompte::getAllWithDetails();
         include 'config.php';
         $vue = $root . '/app/view/compte/viewListeComptes.php';
