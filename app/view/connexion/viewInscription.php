@@ -54,11 +54,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 </div>
                 <p />
                 <p />
-                <label for="statut" style="font-weight: bold;">Votre statut :</label>
-                <select class="form-control" id="statut" name="statut" style="width: 400px" required">
-                    <option value="0">Administrateur</option>
-                    <option value="1">client</option>
-                </select>
+                <!-- <label for="statut" style="font-weight: bold;">Votre statut :</label> -->
+                <input type="hidden" name="statut" value="1">
                 <p />
             </div>
             <p />
