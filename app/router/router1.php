@@ -46,6 +46,7 @@ switch ($action) {
     ControllerCompte::$action();
     break;
   case "listeResidences":
+  case "mesResidences":
     ControllerResidence::$action();
     break;
   //connexion

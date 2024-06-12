@@ -18,18 +18,48 @@ class ModelResidence
     }
 
     // Setters
-    function setId($id) { $this->id = $id; }
-    function setLabel($label) { $this->label = $label; }
-    function setVille($ville) { $this->ville = $ville; }
-    function setPrix($prix) { $this->prix = $prix; }
-    function setPersonneId($personne_id) { $this->personne_id = $personne_id; }
+    function setId($id)
+    {
+        $this->id = $id;
+    }
+    function setLabel($label)
+    {
+        $this->label = $label;
+    }
+    function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+    function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
+    function setPersonneId($personne_id)
+    {
+        $this->personne_id = $personne_id;
+    }
 
     // Getters
-    function getId() { return $this->id; }
-    function getLabel() { return $this->label; }
-    function getVille() { return $this->ville; }
-    function getPrix() { return $this->prix; }
-    function getPersonneId() { return $this->personne_id; }
+    function getId()
+    {
+        return $this->id;
+    }
+    function getLabel()
+    {
+        return $this->label;
+    }
+    function getVille()
+    {
+        return $this->ville;
+    }
+    function getPrix()
+    {
+        return $this->prix;
+    }
+    function getPersonneId()
+    {
+        return $this->personne_id;
+    }
 
     // Récupère toutes les résidences ordonnées par prix
     public static function getAllOrderedByPrix()
@@ -49,5 +79,25 @@ class ModelResidence
             return NULL;
         }
     }
+
+    public static function getByLogin($login)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "
+              SELECT residence.label AS residence_label, residence.ville, residence.prix 
+              FROM residence
+              JOIN personne ON residence.personne_id = personne.id
+              WHERE personne.login = :login";
+            $statement = $database->prepare($query);
+            $statement->bindParam(':login', $login);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
 }
-?>
