@@ -1,10 +1,4 @@
 <?php
-include ('../ModelBanque.php');
-include ('../ModelCompte.php');
-include ('../ModelPersonne.php');
-?>
-
-<?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
 

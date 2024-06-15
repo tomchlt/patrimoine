@@ -27,5 +27,5 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
-  <?php include $root . '/app/view/fragment/fragmentCaveFooter.html'; ?>
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 </body>
