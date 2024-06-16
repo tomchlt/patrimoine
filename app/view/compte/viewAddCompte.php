@@ -53,7 +53,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
        $idP = $tempUser->getId();
 
-       echo('<input type="hidden" name="personne_id" value="'. $idP .'">');
+       echo ('<input type="hidden" name="personne_id" value="' . $idP . '">');
        ?>
       <button class="btn btn-primary" type="submit">Go</button>
     </form>

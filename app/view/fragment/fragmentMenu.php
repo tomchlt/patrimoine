@@ -2,7 +2,7 @@
   <div class="container-fluid">
 
   <?php
-  if ($_SESSION['login'] === 'NULL') {
+  if (!isset($_SESSION['login'])) {
     echo ('<a class="navbar-brand" href="router1.php?action=Accueil">CHARLOT - GODEFROY</a>');
   } else {
     $userType = '';
@@ -33,7 +33,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
       <?php
-      if ($_SESSION['login'] != 'NULL') {
+      if (isset($_SESSION['login'])) {
 
         $menuContent = '';
         // -------- ADMINISTRATEUR -------
