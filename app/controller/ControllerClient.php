@@ -22,4 +22,24 @@ class ControllerClient
         }
         require ($vue);
     }
+
+    //     public static function supprimerClient()
+    // {
+    //     session_start();
+    //     $login = $_SESSION['login'];
+    //     $tempUser = ModelPersonne::getOneLogin($login);
+
+    //     // Récupérer l'ID de l'utilisateur à supprimer depuis le formulaire
+    //     $id = $_POST['id'];
+    //     $results = ModelPersonne::delete($id);
+
+    //     // Réafficher la liste des clients mise à jour
+    //     $results = ModelPersonne::getAll();
+    //     include 'config.php';
+    //     $vue = $root . '/app/view/clien/viewListeClients.php';
+    //     if (DEBUG) {
+    //         echo ("ControllerClient : ListeClients : vue = $vue");
+    //     }
+    //     require ($vue);
+    // }
 }

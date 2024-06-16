@@ -269,17 +269,20 @@ class ModelPersonne
             return NULL;
         }
     }
-
-    public static function update()
+    
+    public static function delete($id)
     {
-        echo ("ModelPersonne : update() TODO ....");
-        return null;
-    }
+        $id = $_POST['id'];
 
-    public static function delete()
-    {
-        echo ("ModelPersonne : delete() TODO ....");
-        return null;
+        try {
+            $database = Model::getInstance();
+            $query = "DELETE FROM personne WHERE id = :id";
+            $statement = $database->prepare($query);
+            $statement->bindParam(':id', $id);
+            $statement->execute();
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+        }
     }
 
 }

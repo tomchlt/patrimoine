@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h1>Liste des clients</h1>
+    <h1>Liste des admins</h1>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -16,6 +16,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <th scope="col">prénom</th>
           <th scope="col">login</th>
           <th scope="col">password</th>
+          <th scope="col">gestionnaire clients</th>
         </tr>
       </thead>
       <tbody>
@@ -23,11 +24,24 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         // La liste des clients est dans une variable $results         
         foreach ($results as $element) {
           printf(
-            "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+            "<tr>
+              <td>%s</td>
+              <td>%s</td>
+              <td>%s</td>
+              <td>%s</td>
+              <td>
+                <form method='get' action='router.php?action=router1.php'>
+                  <input type='hidden' name='action' value='supprimerClient'>
+                  <input type='hidden' name='id' value='%s'>
+                  <button type='submit' class='btn btn-danger'>Supprimer</button>
+                </form>
+              </td>
+            </tr>",
             $element->getNom(),
             $element->getPrenom(),
             $element->getLogin(),
-            $element->getPassword()
+            $element->getPassword(),
+            $element->getId()
           );
         }
         ?>

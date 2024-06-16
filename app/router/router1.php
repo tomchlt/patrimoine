@@ -34,6 +34,7 @@ switch ($action) {
     ControllerBanque::$action();
     break;
   case "listeClients":
+  case "supprimerClient":
     ControllerClient::$action();
     break;
   case "listeAdmins":

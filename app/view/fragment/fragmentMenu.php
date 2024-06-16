@@ -2,6 +2,10 @@
   <div class="container-fluid">
 
   <?php
+  if(isset($_COOKIE['PHPSESSID'])){
+    unset($_COOKIE['PHPSESSID']);
+  }
+  ;
   if (!isset($_SESSION['login'])) {
     echo ('<a class="navbar-brand" href="router1.php?action=Accueil">CHARLOT - GODEFROY</a>');
   } else {
@@ -83,7 +87,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CONNEXION</a>
             <ul class="dropdown-menu">
-              <?php 
+              <?php
               if (!isset($_SESSION['login'])) {
                 echo ('              <li><a class="dropdown-item" href="router1.php?action=connexion">Connexion</a></li>
               <li><a class="dropdown-item" href="router1.php?action=inscription">Inscription</a></li>');

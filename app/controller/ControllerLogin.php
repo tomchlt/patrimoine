@@ -29,7 +29,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if (isset($_SESSION['login'])) {
+        if ($_SESSION['login'] != 'NULL') {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -74,7 +74,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if (isset($_SESSION['login'])) {
+        if ($_SESSION['login'] != 'NULL') {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -90,15 +90,14 @@ class ControllerLogin
     // ---- Déconnexion de l'user : affichage de la page d'accueil
     public static function deconnexion()
     {
-        // Récupération des données de l'user connecté
-        session_start();
-        $_SESSION['login'] = '';
+
+        session_destroy();
 
         // Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/viewAccueil.php';
         if (DEBUG)
-            echo ("ControllerLogin: deconnexion : vue = $vue");
+            echo ("ControllerLogin : Accueil : vue = $vue");
         require ($vue);
     }
 
@@ -107,7 +106,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if (isset($_SESSION['login'])) {
+        if ($_SESSION['login'] != 'NULL') {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
