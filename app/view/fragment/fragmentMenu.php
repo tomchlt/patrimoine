@@ -84,7 +84,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CONNEXION</a>
             <ul class="dropdown-menu">
               <?php 
-              if ($_SESSION['login'] === 'NULL') {
+              if (!isset($_SESSION['login'])) {
                 echo ('              <li><a class="dropdown-item" href="router1.php?action=connexion">Connexion</a></li>
               <li><a class="dropdown-item" href="router1.php?action=inscription">Inscription</a></li>');
               } else {
