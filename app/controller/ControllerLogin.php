@@ -29,7 +29,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if ($_SESSION['login'] != 'NULL') {
+        if (isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -74,7 +74,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if ($_SESSION['login'] != 'NULL') {
+        if (isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -92,7 +92,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        $_SESSION['login'] = 'NULL';
+        $_SESSION['login'] = '';
 
         // Construction chemin de la vue
         include 'config.php';
@@ -107,7 +107,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if ($_SESSION['login'] != 'NULL') {
+        if (isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
