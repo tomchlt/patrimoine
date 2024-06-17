@@ -14,8 +14,10 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        }
 
         include 'config.php';
         $vue = $root . '/app/view/viewAccueil.php';
@@ -29,7 +31,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if ($_SESSION['login'] != 'NULL') {
+        if (isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -74,7 +76,7 @@ class ControllerLogin
     {
         // Récupération des données de l'user connecté
         session_start();
-        if ($_SESSION['login'] != 'NULL') {
+        if (!isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $tempUser = ModelPersonne::getOneLogin($login);
         }
@@ -90,8 +92,9 @@ class ControllerLogin
     // ---- Déconnexion de l'user : affichage de la page d'accueil
     public static function deconnexion()
     {
-
         session_destroy();
+        session_start();
+        $_SESSION['login'] = '';
 
         // Construction chemin de la vue
         include 'config.php';
@@ -123,10 +126,7 @@ class ControllerLogin
     public static function inscriptionLogge()
     {
         // Vérifications des identifiants
-        session_start();
         $signInResults = ModelPersonne::checkLogin($_GET['login']);
-
-        var_dump($_GET);
 
         // Bons identifiants
         if ($signInResults == null) {

@@ -12,8 +12,10 @@ class ControllerCompte
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         // $personne_id = $tempUser['id'];
         $results = ModelBanque::getAll();
@@ -32,8 +34,10 @@ class ControllerCompte
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         // ajouter une validation des informations du formulaire
         $results = ModelCompte::insert(
@@ -51,8 +55,10 @@ class ControllerCompte
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $comptes = ModelCompte::getByLogin($login);
         include 'config.php';
@@ -67,9 +73,10 @@ class ControllerCompte
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
-
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
         $results = ModelCompte::getAllWithDetails();
         include 'config.php';
         $vue = $root . '/app/view/compte/viewListeComptes.php';

@@ -11,9 +11,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
-
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
         $results = ModelBanque::getAll();
         // ----- Construction chemin de la vue
         include 'config.php';
@@ -28,9 +29,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
-
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
         // Vérifiez si l'identifiant de la banque est passé dans l'URL
         if (isset($_GET['id'])) {
             // Récupérez l'identifiant de la banque depuis l'URL
@@ -63,8 +65,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $results = ModelBanque::getAll();
         include 'config.php';
@@ -79,8 +83,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $results = ModelBanque::getAllId();
 
@@ -95,8 +101,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $banque_id = $_GET['id'];
         $results = ModelBanque::getOne($banque_id);
@@ -112,8 +120,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         // ----- Construction chemin de la vue
         include 'config.php';
@@ -126,9 +136,10 @@ class ControllerBanque
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
-
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
         // ajouter une validation des informations du formulaire
         $results = ModelBanque::insert(
             htmlspecialchars($_GET['label']),

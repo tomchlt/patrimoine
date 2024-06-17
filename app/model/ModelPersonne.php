@@ -272,16 +272,16 @@ class ModelPersonne
     
     public static function delete($id)
     {
-        $id = $_POST['id'];
-
         try {
             $database = Model::getInstance();
             $query = "DELETE FROM personne WHERE id = :id";
             $statement = $database->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
+            return true;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return false;
         }
     }
 

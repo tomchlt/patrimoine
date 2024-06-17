@@ -1,5 +1,5 @@
 
-<!-- ----- début viewInscriptionInserted -->
+<!-- ----- début viewClientDeleted -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -13,14 +13,12 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <!-- ===================================================== -->
     <?php
     if ($results) {
-     echo ("<h3>Un nouveau client a été ajouté ! </h3>");
+     echo ("<h3>Le client  a été supprimé </h3>");
      echo("<ul>");
-     echo ("<li>id = " . $results . "</li>");
-     echo ("<li>nom = " . $_GET['nom'] . "</li>");
-     echo ("<li>prénom = " . $_GET['prenom'] . "</li>");
+     echo ("<li>id client = " . $results . "</li>");
      echo("</ul>");
     } else {
-     echo ("<h3>Problème d'insertion du profil : </h3>");
+     echo ("<h3>Problème lors de la suppression du client</h3>");
      echo ("id = " . $_GET['id']);
     }
 
@@ -28,7 +26,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     
     include $root . '/app/view/fragment/fragmentFooter.html';
     ?>
-    <!-- ----- fin viewInscriptionInserted -->    
+    <!-- ----- fin viewClientDeleted -->    
 
     
     

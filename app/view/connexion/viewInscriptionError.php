@@ -48,12 +48,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 </div>
                 <p />
             </div>
-
-            <label for="statut" style="font-weight: bold;">Votre statut :</label>
-                <select class="form-control" id="statut" name="statut" style="width: 400px" required">
-                    <option value="0">Administrateur</option>
-                    <option value="1">Client</option>
-                </select>
             <p />
             <p style="color: #EB57A4; font-weight: bold">Login déjà existant : veuillez en choisir un autre </p>
             <br>

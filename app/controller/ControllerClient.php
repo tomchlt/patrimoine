@@ -11,35 +11,39 @@ class ControllerClient
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $results = ModelPersonne::getAll();
         include 'config.php';
-        $vue = $root . '/app/view/clien/viewListeClients.php';
+        $vue = $root . '/app/view/client/viewListeClients.php';
         if (DEBUG) {
             echo ("ControllerClient : listeClients : vue = $vue");
         }
         require ($vue);
     }
 
-    //     public static function supprimerClient()
-    // {
-    //     session_start();
-    //     $login = $_SESSION['login'];
-    //     $tempUser = ModelPersonne::getOneLogin($login);
+        public static function supprimerClient()
+    {
+        session_start();
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        }
 
-    //     // Récupérer l'ID de l'utilisateur à supprimer depuis le formulaire
-    //     $id = $_POST['id'];
-    //     $results = ModelPersonne::delete($id);
+        // Récupérer l'ID de l'utilisateur à supprimer depuis le formulaire
+        $id = $_GET['id'];
+        $results = ModelPersonne::delete($id);
 
-    //     // Réafficher la liste des clients mise à jour
-    //     $results = ModelPersonne::getAll();
-    //     include 'config.php';
-    //     $vue = $root . '/app/view/clien/viewListeClients.php';
-    //     if (DEBUG) {
-    //         echo ("ControllerClient : ListeClients : vue = $vue");
-    //     }
-    //     require ($vue);
-    // }
+        // Réafficher la liste des clients mise à jour
+        $results = ModelPersonne::getAll();
+        include 'config.php';
+        $vue = $root . '/app/view/client/viewListeClients.php';
+        if (DEBUG) {
+            echo ("ControllerClient : supprimerClient : vue = $vue");
+        }
+        require ($vue);
+    }
 }

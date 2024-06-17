@@ -22,6 +22,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           }
           ?>
         </select>
+        <br>
       </div>
       <p/>
       <button class="btn btn-primary" type="submit">Submit</button>

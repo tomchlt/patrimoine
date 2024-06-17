@@ -30,7 +30,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
               <td>%s</td>
               <td>%s</td>
               <td>
-                <form method='get' action='router.php?action=router1.php'>
+                 <form role='form' method='get' action='router1.php'>    
                   <input type='hidden' name='action' value='supprimerClient'>
                   <input type='hidden' name='id' value='%s'>
                   <button type='submit' class='btn btn-danger'>Supprimer</button>

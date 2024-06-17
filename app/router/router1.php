@@ -1,13 +1,11 @@
-
-<!-- ----- debut Router1 -->
+<!-- ----- début Router.php ----- -->
 <?php
-require ('../controller/ControllerBanque.php');
-require ('../controller/ControllerCompte.php');
-require ('../controller/ControllerResidence.php');
-
-require ('../controller/ControllerLogin.php');
-require ('../controller/ControllerClient.php');
-require ('../controller/ControllerAdmin.php');
+require '../controller/ControllerBanque.php';
+require '../controller/ControllerCompte.php';
+require '../controller/ControllerResidence.php';
+require '../controller/ControllerLogin.php';
+require '../controller/ControllerClient.php';
+require '../controller/ControllerAdmin.php';
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -18,7 +16,6 @@ parse_str($query_string, $param);
 
 // --- $action contient le nom de la méthode statique recherchée
 $action = htmlspecialchars($param["action"]);
-$action = $param['action'];
 unset($param['action']);
 $args = $param;
 
@@ -57,7 +54,7 @@ switch ($action) {
   case "deconnexion":
   case "inscription":
   case "inscriptionError":
-  case 'inscriptionLogge';
+  case "inscriptionLogge":
     ControllerLogin::$action();
     break;
   // Tache par défaut
@@ -66,5 +63,4 @@ switch ($action) {
     ControllerLogin::$action();
 }
 ?>
-<!-- ----- Fin Router1 -->
-
+<!-- ----- Fin Router.php ----- -->

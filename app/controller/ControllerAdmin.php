@@ -11,12 +11,14 @@ class ControllerAdmin
     {
         // Récupération des données de l'user connecté
         session_start();
-        $login = $_SESSION['login'];
-        $tempUser = ModelPersonne::getOneLogin($login);
+        if(isset($_SESSION['login'])){
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        } 
 
         $results = ModelPersonne::getAllAdmins();
         include 'config.php';
-        $vue = $root . '/app/view/clien/viewlisteAdmins.php';
+        $vue = $root . '/app/view/admin/viewlisteAdmins.php';
         if (DEBUG) {
             echo ("ControllerAdmin : listeAdmins : vue = $vue");
         }
