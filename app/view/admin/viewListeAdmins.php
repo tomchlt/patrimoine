@@ -1,4 +1,4 @@
-<!-- ----- début viewListeClients.php ----- -->
+<!-- ----- début viewListeAdmins.php ----- -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -35,4 +35,4 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     </table>
   </div>
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
-<!-- ----- fin viewListeClients.php ----- -->
+<!-- ----- fin viewListeAdmins.php ----- -->

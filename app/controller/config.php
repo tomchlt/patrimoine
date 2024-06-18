@@ -11,17 +11,17 @@ if (!defined('DEBUG')) {
 // Configuration de la base de données sur dev-isi
 $dsn = 'mysql:dbname=godefrom;host=localhost;charset=utf8';
 $username = 'godefrom';
-$password = '.....';
+$password = 'svX48aE3';
 
 if (!defined('LOCAL')) {
-    define('LOCAL', TRUE);
+    define('LOCAL', FALSE);
 }
 
 if (LOCAL) {
     // Configuration de la base de données sur localhost
     $dsn = 'mysql:dbname=godefrom;host=localhost;charset=utf8';
-    $username = 'root';
-    $password = 'root';
+    $username = 'godefrom';
+    $password = 'svX48aE3';
 }
  
 // chemin absolu vers le répertoire du projet SUR DEV-ISI 
