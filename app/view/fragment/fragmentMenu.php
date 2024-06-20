@@ -69,7 +69,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=mesComptes">Liste de mes comptes</a></li>
               <li><a class="dropdown-item" href="router1.php?action=addCompte">Ajouter un nouveau compte</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=">Transfert Inter-comptes</a></li> 
+              <li><a class="dropdown-item" href="router1.php?action=transfert">Transfert Inter-comptes</a></li> 
             </ul>
           </li>
           <li class="nav-item dropdown">

@@ -86,7 +86,43 @@ class ControllerCompte
         require ($vue);
     }
 
+    public static function transfert() {
+        session_start();
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        }
 
+        $comptes = ModelCompte::getAllByLogin($login);
+
+        include 'config.php';
+        $vue = $root . '/app/view/compte/viewTransfert.php';
+        if (DEBUG) {
+            echo ("ControllerCompte : transfert : vue = $vue");
+        }
+        require ($vue);
+    }
+
+    public static function transfertDone() {
+        session_start();
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            $tempUser = ModelPersonne::getOneLogin($login);
+        }
+
+        $results = ModelCompte::transfer(
+            htmlspecialchars($_GET['compteDebite_id']),
+            htmlspecialchars($_GET['compteCredite_id']),
+            htmlspecialchars($_GET['montant']),
+        );
+
+        include 'config.php';
+        $vue = $root . '/app/view/compte/viewTransfertDone.php';
+        if (DEBUG) {
+            echo ("ControllerCompte : transfert : vue = $vue");
+        }
+        require ($vue);
+    }
 }
 ?>
 <!-- ----- fin ControllerCompte -->

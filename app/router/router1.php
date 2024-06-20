@@ -42,6 +42,8 @@ switch ($action) {
   case "mesComptes":
   case "addCompte":
   case "compteCreated":
+  case "transfert":
+  case "transfertDone":
     ControllerCompte::$action();
     break;
   case "listeResidences":
