@@ -78,6 +78,12 @@
               <li><a class="dropdown-item" href="router1.php?action=mesResidences">Liste de mes résidences</a></li>
               <li><a class="dropdown-item" href="router1.php?action=">Acheter une nouvelle résidence</a></li>
             </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MON PATRIMOINE</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="router1.php?action=bilan">Bilan de mon patrimoine</a></li>
+            </ul>
           </li>';
         }
         echo $menuContent;

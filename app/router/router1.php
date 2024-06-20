@@ -6,6 +6,7 @@ require '../controller/ControllerResidence.php';
 require '../controller/ControllerLogin.php';
 require '../controller/ControllerClient.php';
 require '../controller/ControllerAdmin.php';
+require '../controller/ControllerPatrimoine.php';
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -56,6 +57,9 @@ switch ($action) {
   case "inscriptionError":
   case "inscriptionLogge":
     ControllerLogin::$action();
+    break;
+  case "bilan":
+    ControllerPatrimoine::$action();
     break;
   // Tache par défaut
   default:
