@@ -76,7 +76,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES RÉSIDENCES</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=mesResidences">Liste de mes résidences</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=">Acheter une nouvelle résidence</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=achatResidence">Acheter une nouvelle résidence</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

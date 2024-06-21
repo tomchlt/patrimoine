@@ -219,7 +219,6 @@ class ModelCompte
         'id' => $compteDebiteId,
       ]);
       $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-      print_r($results);
       $montantDepart = $results[0];
       // On calcule le montant d'arrivée du compte débité
       $montantArrivee = $montantDepart - abs($montantTransfere);
