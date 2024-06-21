@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h1>Liste des admins</h1>
+    <h1>Liste des clients</h1>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>

@@ -131,6 +131,22 @@ class ModelPersonne
         }
     }
 
+    //tous les clients
+    public static function getAllClients()
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "SELECT * FROM personne WHERE statut = 1";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
     //tous les admins
     public static function getAllAdmins()
     {

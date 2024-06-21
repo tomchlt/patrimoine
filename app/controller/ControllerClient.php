@@ -16,7 +16,7 @@ class ControllerClient
             $tempUser = ModelPersonne::getOneLogin($login);
         } 
 
-        $results = ModelPersonne::getAll();
+        $results = ModelPersonne::getAllClients();
         include 'config.php';
         $vue = $root . '/app/view/client/viewListeClients.php';
         if (DEBUG) {
