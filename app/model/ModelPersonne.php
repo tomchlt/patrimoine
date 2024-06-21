@@ -136,7 +136,7 @@ class ModelPersonne
     {
         try {
             $database = Model::getInstance();
-            $query = "SELECT * FROM personne WHERE id = 0";
+            $query = "SELECT * FROM personne WHERE statut = 0";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");

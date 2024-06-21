@@ -18,7 +18,7 @@ class ControllerAdmin
 
         $results = ModelPersonne::getAllAdmins();
         include 'config.php';
-        $vue = $root . '/app/view/admin/viewlisteAdmins.php';
+        $vue = $root . '/app/view/admin/viewListeAdmins.php';
         if (DEBUG) {
             echo ("ControllerAdmin : listeAdmins : vue = $vue");
         }
