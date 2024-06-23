@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
-    <h3>Liste des comptes de cette banque</h3>
+    <h3>Liste des comptes de <?php echo $banque[0]->getLabel(); ?></h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -33,7 +33,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
               );
             }
           } else {
-            echo ("il n'y a pas de compte pour cette banque");
+            echo ("<tr><td colspan='5' class='text-center'>Il n'y a pas de compte pour cette banque</td></tr>");
           }
           // La liste des comptes est dans une variable $comptes
           
@@ -41,6 +41,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       </tbody>
     </table>
   </div>
-
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
   <!-- ----- fin viewAll -->
 </body>

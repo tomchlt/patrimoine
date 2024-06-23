@@ -40,6 +40,8 @@ class ControllerBanque
             // Appelez la méthode getByBanque du modèle ModelCompte pour récupérer les comptes par banque
             $comptes = ModelCompte::getByBanque($banque_id);
 
+            $banque = ModelBanque::getOne($banque_id);
+
             if ($comptes !== null) {
                 include 'config.php';
                 $vue = $root . '/app/view/banque/viewBanqueCompte.php';
