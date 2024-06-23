@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
-    <h3>Patrimoine de <?php echo ($_SESSION['login']) ?></h3>
+    <h3>Patrimoine de <?php printf("%s %s", $tempUser->getPrenom(), $tempUser->getNom()); ?></h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr class='table-secondary'>

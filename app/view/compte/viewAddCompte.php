@@ -11,7 +11,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?> 
-    <h3>Ajout d'un compte pour <?php echo ($_SESSION['login']) ?></h3>
+    <h3>Ajout d'un compte pour <?php printf("%s %s", $tempUser->getPrenom(), $tempUser->getNom()); ?></h3>
     <br>
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
