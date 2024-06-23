@@ -8,7 +8,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?> 
-
+    <h3>Transfert entre vos comptes</h3>
+    <br>
     <form role="form" method='get' action='router1.php'>
         <div class="form-group">
             <input type="hidden" name='action' value='transfertDone'>  
@@ -42,13 +43,13 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                     <label for="montant" class="col-form-label" style="font-weight: bold; width:200px">Montant :</label>
                 </div>
                 <div class="col-3">
-                    <input type="number" id="montant" name="montant" class="form-control" style="width: 200px" min=0 required>
+                    <input type="number" id="montant" name="montant" class="form-control" style="width: 190px" min=0 required>
                 </div>
             </div>
         </div>
         <br>
-        <button class="btn btn-primary" type="submit">Go</button>
+        <button class="btn btn-primary" type="submit">Valider</button>
     </form>
-    <p/>
+    <br>
   </div>
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

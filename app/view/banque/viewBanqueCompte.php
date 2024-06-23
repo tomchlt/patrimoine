@@ -8,15 +8,15 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
-
+    <h3>Liste des comptes de cette banque</h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope="col">prénom</th>
-          <th scope="col">nom</th>
-          <th scope="col">banque</th>
-          <th scope="col">compte</th>
-          <th scope="col">montant (€)</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Banque</th>
+          <th scope="col">Compte</th>
+          <th scope="col">Montant (€)</th>
         </tr>
       </thead>
       <tbody>

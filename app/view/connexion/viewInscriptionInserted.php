@@ -24,6 +24,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
      echo ("id = " . $_GET['id']);
     }
 
+    echo ("<br>");
     echo("</div>");
     
     include $root . '/app/view/fragment/fragmentFooter.html';

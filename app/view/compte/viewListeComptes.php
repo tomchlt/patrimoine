@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h1>Liste des comptes</h1>
+    <h3>Liste des comptes bancaires</h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -17,7 +17,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <th scope="col">Label de la banque</th>
           <th scope="col">Pays de la banque</th>
           <th scope="col">Label du compte</th>
-          <th scope="col">Montant</th>
+          <th scope="col">Montant (€)</th>
         </tr>
       </thead>
       <tbody>

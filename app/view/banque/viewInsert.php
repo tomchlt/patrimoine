@@ -11,7 +11,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?> 
-
+    <h3>Ajout d'une banque</h3>
+    <br>
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
         <input type="hidden" name='action' value='banqueCreated'>      
@@ -32,10 +33,9 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
               </div>
         </div><br/>     
       </div>
-      <p/>
-       <br/> 
-      <button class="btn btn-primary" type="submit">Go</button>
+      <button class="btn btn-primary" type="submit">Valider</button>
     </form>
+    <br>
     <p/>
   </div>
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

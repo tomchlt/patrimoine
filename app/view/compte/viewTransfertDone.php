@@ -11,7 +11,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <!-- ===================================================== -->
     <?php
     if ($results) {
-      echo ("<h3>Le transfert a été effectué : </h3>");
+      echo ("<h3>Le transfert a été effectué</h3>");
       echo ("<ul>");
       echo ("<li>id du compte débité = " . $_GET['compteDebite_id'] . "</li>");
       echo ("<li>id du compte crédité = " . $_GET['compteCredite_id'] . "</li>");
@@ -25,6 +25,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       echo ("<li>id du compte à créditer = " . $_GET['compteCredite_id'] . "</li>");
       echo ("</ul>");
     }
+    echo ("<br>");
 
     echo ("</div>");
 

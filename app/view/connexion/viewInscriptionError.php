@@ -8,6 +8,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
+        <h3>Inscription</h3>
+        <br>
         <form role="form" method="get" action="router1.php">
             <div class="form-group">
                 <input type="hidden" name="action" value="inscriptionLogge">
@@ -47,14 +49,15 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                     </div>
                 </div>
                 <p />
+                <!-- <label for="statut" style="font-weight: bold;">Votre statut :</label> -->
+                <input type="hidden" name="statut" value="1">
             </div>
             <p />
             <p style="color: #EB57A4; font-weight: bold">Login déjà existant : veuillez en choisir un autre </p>
             <br>
             <button class="btn btn-primary" type="submit">Valider</button>
-            <br>
         </form>
-
+        <br>
 
       </tbody>
     </table>

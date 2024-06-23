@@ -8,14 +8,14 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h1>Liste des résidences</h1>
+    <h3>Liste des résidences</h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th scope="col">Propriétaire</th>
           <th scope="col">Label</th>
           <th scope="col">Ville</th>
-          <th scope="col">Prix</th>
+          <th scope="col">Prix (€)</th>
         </tr>
       </thead>
       <tbody>

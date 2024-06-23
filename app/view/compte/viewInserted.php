@@ -13,7 +13,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <!-- ===================================================== -->
     <?php
     if ($results) {
-      echo ("<h3>Le nouveau compte a été ajouté : </h3>");
+      echo ("<h3>Le nouveau compte a été ajouté</h3>");
       echo ("<ul>");
       echo ("<li>id = " . $results . "</li>");
       echo ("<li>label = " . $_GET['label'] . "</li>");
@@ -23,6 +23,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       echo ("<h3>Problème d'insertion du compte</h3>");
       echo ("id = " . $_GET['id']);
     }
+    echo ("<br>");
 
     echo ("</div>");
 

@@ -8,6 +8,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
+        <h3>Inscription</h3>
+        <br>
         <form role="form" method="get" action="router1.php">
             <div class="form-group">
                 <input type="hidden" name="action" value="inscriptionLogge">
@@ -33,7 +35,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                     <div class="col-1">
                         <label for="login" class="col-form-label" style="font-weight: bold; width:200px">Login :</label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input type="text" id="login" name="login" class="form-control" required>
                     </div>
                 </div>
@@ -42,7 +44,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                     <div class="col-1">
                         <label for="password" class="col-form-label" style="font-weight: bold; width:200px">Password :</label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input type="password" id="password" name="password" class="form-control" required>
                     </div>
                 </div>
@@ -55,13 +57,15 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             <p />
             <br>
             <button class="btn btn-primary" type="submit">Valider</button>
-            <br>
         </form>
-
+        <br>
 
       </tbody>
     </table>
   </div>
 
+  <?php
+  include $root . '/app/view/fragment/fragmentFooter.html';
+  ?>
   <!-- ----- fin viewInscription -->
 </body>

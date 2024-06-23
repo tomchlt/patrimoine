@@ -8,7 +8,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       include $root . '/app/view/fragment/fragmentMenu.php';
       include $root . '/app/view/fragment/fragmentJumbotron.html';
       ?>
-    <h3>Compte de : <?php echo ($_SESSION['login']) ?></h3>
+    <h3>Comptes bancaires de : <?php echo ($_SESSION['login']) ?></h3>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -29,12 +29,12 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
               );
             }
           } else {
-            echo ("<tr><td colspan='3'>Vous n'avez pas de compte</td></tr>");
+            echo ("<tr><td colspan='3' class='text-center'>Vous n'avez pas de compte</td></tr>");
           }
           ?>
       </tbody>
     </table>
   </div>
-
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
   <!-- ----- fin viewMesComptes -->
 </body>

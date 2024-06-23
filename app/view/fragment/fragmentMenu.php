@@ -44,7 +44,7 @@
         if ($tempUser->getStatut() == ModelPersonne::ADMINISTRATEUR) {
 
           $menuContent = '        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">BANQUE</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Banques</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=banqueReadAll">Liste des banques</a></li>
               <li><a class="dropdown-item" href="router1.php?action=banqueCompte">Comptes par banque</a></li>
@@ -53,7 +53,7 @@
           </li>
   
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CLIENTS</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clients</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=listeClients">Liste des clients</a></li>
               <li><a class="dropdown-item" href="router1.php?action=listeAdmins">Liste des administrateurs</a></li>
@@ -65,22 +65,22 @@
         if ($tempUser->getStatut() == ModelPersonne::USER) {
           $menuContent = '
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES COMPTES BANCAIRES</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mes comptes bancaires</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=mesComptes">Liste de mes comptes</a></li>
               <li><a class="dropdown-item" href="router1.php?action=addCompte">Ajouter un nouveau compte</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=transfert">Transfert Inter-comptes</a></li> 
+              <li><a class="dropdown-item" href="router1.php?action=transfert">Transfert inter-comptes</a></li> 
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MES RÉSIDENCES</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mes résidences</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=mesResidences">Liste de mes résidences</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=achatResidence">Acheter une nouvelle résidence</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=achatResidence">Achat d\'une nouvelle résidence</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">MON PATRIMOINE</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mon patrimoine</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="router1.php?action=bilan">Bilan de mon patrimoine</a></li>
             </ul>
@@ -91,12 +91,12 @@
       ?>
         <!-- CONNEXION-->
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CONNEXION</a>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Connexion</a>
             <ul class="dropdown-menu">
               <?php
               if (!isset($_SESSION['login'])) {
-                echo ('              <li><a class="dropdown-item" href="router1.php?action=connexion">Connexion</a></li>
-              <li><a class="dropdown-item" href="router1.php?action=inscription">Inscription</a></li>');
+                echo ('              <li><a class="dropdown-item" href="router1.php?action=connexion">Se connecter</a></li>
+              <li><a class="dropdown-item" href="router1.php?action=inscription">S\'inscrire</a></li>');
               } else {
                 echo ('<li><a class="dropdown-item" href="router1.php?action=deconnexion">Se déconnecter</a></li>');
               }

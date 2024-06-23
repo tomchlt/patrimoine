@@ -12,7 +12,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope="col">Label de la Résidence</th>
+          <th scope="col">Label de la résidence</th>
           <th scope="col">Ville</th>
           <th scope="col">Prix (€)</th>
         </tr>
@@ -29,12 +29,12 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
               );
             }
           } else {
-            echo ("<tr><td colspan='3'>Vous n'avez pas de résidence</td></tr>");
+            echo ("<tr><td colspan='3' class='text-center'>Vous n'avez pas de résidence</td></tr>");
           }
           ?>
       </tbody>
     </table>
   </div>
-
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
   <!-- ----- fin viewMesRésidences -->
 </body>

@@ -10,6 +10,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     ?> 
 
     <h3>Achat de la résidence <?php echo $residence['label']; ?></h3>
+    <br>
     <form role="form" method='get' action='router1.php'>
         <div class="form-group">
             <input type="hidden" name='action' value='achatResidenceDone'>  
@@ -46,8 +47,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         </div>
         <input type="hidden" name="residence_id" value="<?php echo $residenceId; ?>">
         <br>
-        <button class="btn btn-primary" type="submit">Go</button>
+        <button class="btn btn-primary" type="submit">Valider</button>
     </form>
-    <p/>
+    <br>
   </div>
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

@@ -11,7 +11,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.php';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?> 
-
+    <h3>Ajout d'un compte pour <?php echo ($_SESSION['login']) ?></h3>
+    <br>
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
         <input type="hidden" name='action' value='compteCreated'>  
@@ -47,17 +48,12 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         </div>
        <br/> 
        <?php
-       session_start();
-       $login = $_SESSION['login'];
-       $tempUser = ModelPersonne::getOneLogin($login);
-
        $idP = $tempUser->getId();
-
        echo ('<input type="hidden" name="personne_id" value="' . $idP . '">');
        ?>
-      <button class="btn btn-primary" type="submit">Go</button>
+      <button class="btn btn-primary" type="submit">Valider</button>
     </form>
-    <p/>
+    <br>
   </div>
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 

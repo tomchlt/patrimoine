@@ -27,6 +27,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       echo ("<li>id du compte du vendeur = " . $_GET['compteVendeur_id'] . "</li>");
       echo ("</ul>");
     }
+    echo ("<br>");
 
     echo ("</div>");
 

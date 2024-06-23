@@ -23,6 +23,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
      echo ("<h3>Problème d'insertion de la Banque</h3>");
      echo ("id = " . $_GET['id']);
     }
+    echo ("<br>");
 
     echo("</div>");
     
