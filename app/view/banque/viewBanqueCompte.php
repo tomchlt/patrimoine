@@ -16,7 +16,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <th scope="col">Nom</th>
           <th scope="col">Banque</th>
           <th scope="col">Compte</th>
-          <th scope="col">Montant (€)</th>
+          <th scope="col" class="text-end">Montant (€)</th>
         </tr>
       </thead>
       <tbody>
@@ -24,12 +24,12 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           if (count($comptes)) {
             foreach ($comptes as $compte) {
               printf(
-                "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='text-end'>%s</td></tr>",
                 $compte->getPersonnePrenom(),
                 $compte->getPersonneNom(),
                 $compte->getBanqueNom(),
                 $compte->getLabel(),
-                $compte->getMontant()
+                number_format($compte->getMontant(), 2, ",", " ")
               );
             }
           } else {

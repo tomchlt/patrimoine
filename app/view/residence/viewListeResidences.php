@@ -15,19 +15,19 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <th scope="col">Propriétaire</th>
           <th scope="col">Label</th>
           <th scope="col">Ville</th>
-          <th scope="col">Prix (€)</th>
+          <th scope="col" class="text-end">Prix (€)</th>
         </tr>
       </thead>
       <tbody>
         <?php
         foreach ($results as $residence) {
           printf(
-            "<tr><td>%s %s</td><td>%s</td><td>%s</td><td>%d</td></tr>",
+            "<tr><td>%s %s</td><td>%s</td><td>%s</td><td class='text-end'>%s</td></tr>",
             $residence['nom'],
             $residence['prenom'],
             $residence['label'],
             $residence['ville'],
-            $residence['prix']
+            number_format($residence['prix'], 2, ",", " ")
           );
         }
         ?>

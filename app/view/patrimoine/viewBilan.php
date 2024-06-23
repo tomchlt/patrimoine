@@ -14,8 +14,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <tr class='table-secondary'>
           <th scope="col">Catégorie</th>
           <th scope="col">Label</th>
-          <th scope="col">Valeur (€)</th>
-          <th scope="col">Capital (€)</th>
+          <th scope="col" class="text-end">Valeur (€)</th>
+          <th scope="col" class="text-end">Capital (€)</th>
         </tr>
       </thead>
       <tbody>
@@ -25,10 +25,10 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             foreach ($comptes as $compte) {
               $capital += $compte['montant'];
               printf(
-                "<tr class='table-primary'><td>compte</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                "<tr class='table-primary'><td>compte</td><td>%s</td><td class='text-end'>%s</td><td class='text-end'>%s</td></tr>",
                 $compte['compte_label'],
-                $compte['montant'],
-                $capital,
+                number_format($compte['montant'], 2, ",", " "),
+                number_format($capital, 2, ",", " ")
               );
             }
           }
@@ -36,10 +36,10 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             foreach ($residences as $residence) {
               $capital += $residence['prix'];
               printf(
-                "<tr class='table-info'><td>résidence</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+                "<tr class='table-info'><td>résidence</td><td>%s</td><td class='text-end'>%s</td><td class='text-end'>%s</td></tr>",
                 $residence['residence_label'],
-                $residence['prix'],
-                $capital,
+                number_format($residence['prix'], 2, ",", " "),
+                number_format($capital, 2, ",", " ")
               );
             }
           }

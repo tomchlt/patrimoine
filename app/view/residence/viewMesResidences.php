@@ -14,7 +14,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <tr>
           <th scope="col">Label de la résidence</th>
           <th scope="col">Ville</th>
-          <th scope="col">Prix (€)</th>
+          <th scope="col" class="text-end">Prix (€)</th>
         </tr>
       </thead>
       <tbody>
@@ -22,10 +22,10 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           if ($results) {
             foreach ($results as $resi) {
               printf(
-                "<tr><td>%s</td><td>%s</td><td>%s</td></tr>",
+                "<tr><td>%s</td><td>%s</td><td class='text-end'>%s</td></tr>",
                 $resi['residence_label'],
                 $resi['ville'],
-                $resi['prix'],
+                number_format($resi['prix'], 2, ",", " ")
               );
             }
           } else {

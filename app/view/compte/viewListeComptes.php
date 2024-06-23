@@ -17,20 +17,20 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
           <th scope="col">Label de la banque</th>
           <th scope="col">Pays de la banque</th>
           <th scope="col">Label du compte</th>
-          <th scope="col">Montant (€)</th>
+          <th scope="col" class="text-end">Montant (€)</th>
         </tr>
       </thead>
       <tbody>
         <?php
         foreach ($results as $compte) {
           printf(
-            "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%d</td></tr>",
+            "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='text-end'>%s</td></tr>",
             $compte['nom'],
             $compte['prenom'],
             $compte['banque_label'],
             $compte['pays'],
             $compte['compte_label'],
-            $compte['montant']
+            number_format($compte['montant'], 2, ",", " ")
           );
         }
         ?>
