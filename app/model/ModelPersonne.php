@@ -212,7 +212,7 @@ class ModelPersonne
                 'password' => $password
             ]);
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
-            return $results[0];
+            return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

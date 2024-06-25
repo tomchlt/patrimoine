@@ -20,8 +20,9 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
      echo ("<li>pays = " . $_GET['pays'] . "</li>");
      echo("</ul>");
     } else {
-     echo ("<h3>Problème d'insertion de la Banque</h3>");
-     echo ("id = " . $_GET['id']);
+     echo ("<h3>Problème d'insertion de la banque</h3>");
+     echo ("<li>label = " . $_GET['label'] . "</li>");
+     echo ("<li>pays = " . $_GET['pays'] . "</li>");
     }
     echo ("<br>");
 

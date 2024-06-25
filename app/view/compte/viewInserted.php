@@ -21,7 +21,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       echo ("</ul>");
     } else {
       echo ("<h3>Problème d'insertion du compte</h3>");
-      echo ("id = " . $_GET['id']);
+      echo ("<li>label = " . $_GET['label'] . "</li>");
+      echo ("<li>montant = " . $_GET['montant'] . "</li>");
     }
     echo ("<br>");
 

@@ -136,7 +136,7 @@ class ModelBanque
       return $id;
     } catch (PDOException $e) {
       printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-      return -1;
+      return NULL;
     }
   }
 
