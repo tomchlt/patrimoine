@@ -96,7 +96,12 @@ class ControllerCompte
         $comptes = ModelCompte::getAllByLogin($login);
 
         include 'config.php';
-        $vue = $root . '/app/view/compte/viewTransfert.php';
+        if (count($comptes)>1) {
+            $vue = $root . '/app/view/compte/viewTransfert.php';
+        } else {
+            $vue = $root . '/app/view/compte/viewTransfertError.php';
+        }
+
         if (DEBUG) {
             echo ("ControllerCompte : transfert : vue = $vue");
         }
@@ -110,11 +115,15 @@ class ControllerCompte
             $tempUser = ModelPersonne::getOneLogin($login);
         }
 
-        $results = ModelCompte::transfer(
-            htmlspecialchars($_GET['compteDebite_id']),
-            htmlspecialchars($_GET['compteCredite_id']),
-            htmlspecialchars($_GET['montant']),
-        );
+        if (htmlspecialchars($_GET['compteDebite_id']) != htmlspecialchars($_GET['compteCredite_id'])) {
+            $results = ModelCompte::transfer(
+                htmlspecialchars($_GET['compteDebite_id']),
+                htmlspecialchars($_GET['compteCredite_id']),
+                htmlspecialchars($_GET['montant']),
+            );
+        } else {
+            $results = NULL;
+        }
 
         include 'config.php';
         $vue = $root . '/app/view/compte/viewTransfertDone.php';
